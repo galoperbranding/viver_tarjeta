@@ -122,6 +122,7 @@ export default function Aurora(props: AuroraProps) {
 
   const ctnDom = useRef<HTMLDivElement>(null);
 
+  // Usamos propsRef para leer siempre los props actuales, por lo que no es necesario poner amplitude en dependencias si no cambia dinámicamente.
   useEffect(() => {
     const ctn = ctnDom.current;
     if (!ctn) return;
@@ -203,7 +204,7 @@ export default function Aurora(props: AuroraProps) {
       }
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [amplitude]);
+  }, []); // propsRef asegura que siempre se lean los props actuales
 
   return <div ref={ctnDom} className="aurora-container" style={{position:'absolute', inset:0, zIndex:0, width:'100%', height:'100%'}} />;
 }
