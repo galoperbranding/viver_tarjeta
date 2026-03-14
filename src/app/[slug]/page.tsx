@@ -15,8 +15,9 @@ const AGENTS = [
   }
 ];
 
-export default function AgentCard({ params }: { params: { slug: string } }) {
-  const agent = AGENTS.find(a => a.slug === params.slug);
+export default async function AgentCard({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const agent = AGENTS.find(a => a.slug === slug);
   if (!agent) return notFound();
 
   return (
