@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import Aurora from "./Aurora";
 
+export default function Home() {
   // Efecto ripple en React
   function handleRipple(e: React.MouseEvent<HTMLAnchorElement>) {
     const target = e.currentTarget;
