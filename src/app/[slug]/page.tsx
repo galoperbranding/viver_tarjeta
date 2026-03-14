@@ -5,12 +5,21 @@ import Aurora from "../Aurora";
 
 const AGENTS = [
   {
+    slug: "luismorales",
     name: "Luis Morales",
-    role: "Senior Broker",
+    role: "Asesor Bienes Raíces",
+    bio: "Asesor inmobiliario especializado en compra, venta y alquiler de propiedades, ayudando a clientes e inversionistas a encontrar la mejor oportunidad.",
     phone: "+51 999 999 999",
     email: "luis@viver.pe",
-    slug: "luismorales",
-    avatar: "/assets/joseluis.png"
+    avatar: "/assets/joseluis.png",
+    premium: true,
+    links: [
+      { label: "Sitio Web", url: "https://viver.pe" },
+      { label: "Instagram", url: "https://instagram.com" },
+      { label: "Facebook", url: "https://facebook.com" },
+      { label: "YouTube", url: "https://youtube.com" },
+      { label: "TikTok", url: "https://tiktok.com" },
+    ]
   }
 ];
 
@@ -21,18 +30,37 @@ export default async function AgentCard({ params }: { params: Promise<{ slug: st
 
   return (
     <>
-      <Aurora colorStops={["#7cff67", "#B19EEF", "#5227FF"]} blend={0.5} amplitude={1.0} speed={1} />
-      <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", zIndex: 1 }}>
-        <Image src={agent.avatar} alt={agent.name} width={240} height={240} style={{ borderRadius: "50%", marginBottom: 32, objectFit: "cover" }} priority />
-        <h1 style={{ fontSize: 32, fontWeight: 700, margin: 0 }}>{agent.name}</h1>
-        <h2 style={{ fontSize: 20, fontWeight: 400, margin: 0, color: '#666' }}>{agent.role}</h2>
-        <div style={{ margin: "24px 0 0 0", textAlign: "center" }}>
-          <p style={{ margin: 0 }}><strong>Teléfono:</strong> {agent.phone}</p>
-          <p style={{ margin: 0 }}><strong>Email:</strong> <a href={`mailto:${agent.email}`}>{agent.email}</a></p>
+      <Aurora colorStops={["#7cff67","#B19EEF","#5227FF"]} blend={0.5} amplitude={1.0} speed={1} />
+      <div className="container" style={{ position: "relative", zIndex: 1 }}>
+        <main className="card">
+          {agent.premium && (
+            <div className="premium-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              PREMIUM
+            </div>
+          )}
+          <div className="profile__avatar">
+            <Image src={agent.avatar} alt={agent.name} width={120} height={120} style={{ borderRadius: "50%", objectFit: "cover" }} />
+          </div>
+          <h1 className="profile__name">{agent.name}</h1>
+          <h2 className="profile__role">{agent.role}</h2>
+          <p className="profile__bio">{agent.bio}</p>
+          <div className="links">
+            {agent.links.map((link) => (
+              <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer" className="link-button">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </main>
+        <div style={{ display: "flex", justifyContent: "center", margin: "32px 0 0 0" }}>
+          <Image src="/assets/logo_viver.svg" alt="Logo Viver" width={180} height={48} />
         </div>
-        <div style={{ marginTop: 40 }}>
-          <Image src="/assets/logo_viver.svg" alt="Logo Viver" width={180} height={48} priority />
-        </div>
+        <footer className="footer">
+          <p>© 2026 Viver. Todos los derechos reservados.</p>
+        </footer>
       </div>
     </>
   );
