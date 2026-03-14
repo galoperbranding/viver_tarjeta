@@ -1,9 +1,7 @@
 "use client";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import React from "react";
 import Aurora from "../Aurora";
-import "../globals.css";
 
 const AGENTS = [
   {
@@ -23,25 +21,18 @@ export default async function AgentCard({ params }: { params: Promise<{ slug: st
 
   return (
     <>
-      <Aurora colorStops={["#7cff67","#B19EEF","#5227FF"]} blend={0.5} amplitude={1.0} speed={1} />
-      <div className="container" style={{ position: "relative", zIndex: 1 }}>
-        <main className="card" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
-            <Image src={agent.avatar} alt={agent.name} width={96} height={96} style={{ borderRadius: "50%" }} />
-          </div>
-          <h1 className="profile__name">{agent.name}</h1>
-          <h2 className="profile__role">{agent.role}</h2>
-          <div style={{ margin: "16px 0" }}>
-            <p><strong>Teléfono:</strong> {agent.phone}</p>
-            <p><strong>Email:</strong> <a href={`mailto:${agent.email}`}>{agent.email}</a></p>
-          </div>
-        </main>
-        <div style={{ display: "flex", justifyContent: "center", margin: "32px 0 0 0" }}>
-          <Image src="/assets/logo_viver.svg" alt="Logo Viver" width={180} height={48} />
+      <Aurora colorStops={["#7cff67", "#B19EEF", "#5227FF"]} blend={0.5} amplitude={1.0} speed={1} />
+      <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", zIndex: 1 }}>
+        <Image src={agent.avatar} alt={agent.name} width={240} height={240} style={{ borderRadius: "50%", marginBottom: 32, objectFit: "cover" }} priority />
+        <h1 style={{ fontSize: 32, fontWeight: 700, margin: 0 }}>{agent.name}</h1>
+        <h2 style={{ fontSize: 20, fontWeight: 400, margin: 0, color: '#666' }}>{agent.role}</h2>
+        <div style={{ margin: "24px 0 0 0", textAlign: "center" }}>
+          <p style={{ margin: 0 }}><strong>Teléfono:</strong> {agent.phone}</p>
+          <p style={{ margin: 0 }}><strong>Email:</strong> <a href={`mailto:${agent.email}`}>{agent.email}</a></p>
         </div>
-        <footer className="footer">
-          <p>© 2026 Viver. Todos los derechos reservados.</p>
-        </footer>
+        <div style={{ marginTop: 40 }}>
+          <Image src="/assets/logo_viver.svg" alt="Logo Viver" width={180} height={48} priority />
+        </div>
       </div>
     </>
   );
