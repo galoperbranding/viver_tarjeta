@@ -207,5 +207,5 @@ export default function Aurora(props: AuroraProps) {
     };
   }, []); // propsRef asegura que siempre se lean los props actuales
 
-  return <div ref={ctnDom} className="aurora-container" style={{position:'absolute', inset:0, zIndex:0, width:'100%', height:'100%'}} />;
+  return <div ref={ctnDom} className="aurora-container" style={{position:'fixed', inset:0, zIndex:0, width:'100%', height:'100%'}} />;
 }
