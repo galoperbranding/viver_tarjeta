@@ -64,7 +64,7 @@ function VideoCarousel() {
           <div onClick={() => setPlaying(current)} style={{ cursor: "pointer", position: "relative", width: "100%", height: "100%" }}>
             <img src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`} alt={video.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <div style={{ width: 56, height: 56, background: "rgba(255,0,0,0.9)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ width: 56, height: 56, background: "#509e2f", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
               </div>
             </div>
