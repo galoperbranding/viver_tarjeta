@@ -142,14 +142,13 @@ export default function Aurora(props: AuroraProps) {
     let program: Program | undefined;
 
     function resize() {
-      if (!ctn) return;
-      const width = ctn.offsetWidth;
-      const height = ctn.offsetHeight;
-      renderer.setSize(width, height);
-      if (program) {
-        program.uniforms.uResolution.value = [width, height];
-      }
-    }
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  renderer.setSize(width, height);
+  if (program) {
+    program.uniforms.uResolution.value = [width, height];
+  }
+}
     window.addEventListener('resize', resize);
 
     const geometry = new Triangle(gl);
