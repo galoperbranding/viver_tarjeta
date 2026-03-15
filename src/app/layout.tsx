@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Luis Morales | Asesor Bienes Raíces - Viver",
+  title: "Viver | Bienes Raíces",
   description: "Tarjeta digital de Luis Morales, asesor inmobiliario de Viver.",
   icons: {
     icon: "/assets/favicon.ico",
   },
   openGraph: {
-    title: "Luis Morales | Asesor Bienes Raíces - Viver",
+    title: "Viver | Bienes Raíces",
     description: "Tarjeta digital de Luis Morales, asesor inmobiliario de Viver.",
     url: "https://viver.pe/luismorales",
     siteName: "Viver",
