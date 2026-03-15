@@ -129,8 +129,9 @@ export default function AgentCard({ params }: { params: Promise<{ slug: string }
           <Image src="/assets/logo_viver.svg" alt="Logo Viver" width={180} height={48} />
         </div>
         <footer className="footer">
-          <p>© 2026 Viver. Todos los derechos reservados.</p>
-        </footer>
+  <p>© 2026 Viver. Todos los derechos reservados.</p>
+  <p>Creado por <a href="https://galoper.cl" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>Galoper</a></p>
+</footer>
       </div>
     </>
   );
