@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Luis Morales | Asesor Bienes Raíces - Viver",
   description: "Tarjeta digital de Luis Morales, asesor inmobiliario de Viver.",
   icons: {
-    icon: "/assets/favicon.png",
+    icon: "/assets/favicon.ico",
   },
   openGraph: {
     title: "Luis Morales | Asesor Bienes Raíces - Viver",
