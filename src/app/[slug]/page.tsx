@@ -45,11 +45,6 @@ function VideoCarousel() {
     return () => clearInterval(timer);
   }, [playing]);
 
-  const handlePlay = (index: number) => {
-    setPlaying(index);
-    setCurrent(index);
-  };
-
   const video = VIDEOS[current];
 
   return (
@@ -66,39 +61,20 @@ function VideoCarousel() {
             style={{ border: "none", position: "absolute", inset: 0, width: "100%", height: "100%" }}
           />
         ) : (
-          <div onClick={() => handlePlay(current)} style={{ cursor: "pointer", position: "relative", width: "100%", height: "100%" }}>
-            <img
-              src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
-              alt={video.title}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+          <div onClick={() => setPlaying(current)} style={{ cursor: "pointer", position: "relative", width: "100%", height: "100%" }}>
+            <img src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`} alt={video.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <div style={{ width: 56, height: 56, background: "rgba(255,0,0,0.9)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
               </div>
             </div>
-            <div style={{ position: "absolute", bottom: 10, left: 12, right: 12, color: "#fff", fontWeight: 600, fontSize: "0.9rem", textShadow: "0 1px 4px rgba(0,0,0,0.8)" }}>
-              {video.title}
-            </div>
-            
-              href={`https://www.youtube.com/watch?v=${video.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={e => e.stopPropagation()}
-              style={{ position: "absolute", top: 10, right: 10 }}
-            >
-              <svg viewBox="0 0 24 24" fill="red" width="32" height="32"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-            </a>
+            <div style={{ position: "absolute", bottom: 10, left: 12, color: "#fff", fontWeight: 600, fontSize: "0.9rem", textShadow: "0 1px 4px rgba(0,0,0,0.8)" }}>{video.title}</div>
           </div>
         )}
       </div>
       <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 12 }}>
         {VIDEOS.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => { setCurrent(i); setPlaying(null); }}
-            style={{ width: i === current ? 20 : 8, height: 8, borderRadius: 4, background: i === current ? "var(--color-accent)" : "rgba(255,255,255,0.3)", border: "none", cursor: "pointer", padding: 0, transition: "all 0.3s" }}
-          />
+          <button key={i} onClick={() => { setCurrent(i); setPlaying(null); }} style={{ width: i === current ? 20 : 8, height: 8, borderRadius: 4, background: i === current ? "var(--color-accent)" : "rgba(255,255,255,0.3)", border: "none", cursor: "pointer", padding: 0, transition: "all 0.3s" }} />
         ))}
       </div>
     </div>
