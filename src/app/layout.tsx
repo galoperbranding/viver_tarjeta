@@ -1,30 +1,32 @@
-
 import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Luis Morales | Asesor Bienes Raíces - Viver",
-  description: "Tarjeta digital de Luis Morales, asesor inmobiliario de Viver. Compra, venta y alquiler de propiedades en el campo. Contacto, redes sociales y más.",
+  description: "Tarjeta digital de Luis Morales, asesor inmobiliario de Viver.",
+  icons: {
+    icon: "/assets/favicon.png",
+  },
   openGraph: {
     title: "Luis Morales | Asesor Bienes Raíces - Viver",
-    description: "Tarjeta digital de Luis Morales, asesor inmobiliario de Viver. Compra, venta y alquiler de propiedades en el campo. Contacto, redes sociales y más.",
-    url: "https://vivercampo.com",
+    description: "Tarjeta digital de Luis Morales, asesor inmobiliario de Viver.",
+    url: "https://viver.pe/luismorales",
     siteName: "Viver",
     images: [
       {
-        url: "/assets/joseluis.png",
-        width: 800,
-        height: 800,
-        alt: "Foto de perfil de Luis Morales"
+        url: "/assets/preview_viver.png",
+        width: 1200,
+        height: 630,
+        alt: "Luis Morales - Asesor Bienes Raíces Viver"
       }
     ],
-    locale: "es_ES",
+    locale: "es_PE",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "Luis Morales | Asesor Bienes Raíces - Viver",
-    description: "Tarjeta digital de Luis Morales, asesor inmobiliario de Viver. Compra, venta y alquiler de propiedades en el campo. Contacto, redes sociales y más."
+    description: "Tarjeta digital de Luis Morales, asesor inmobiliario de Viver."
   }
 };
 
@@ -39,16 +41,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        export const metadata = {
-  title: "Viver | Tarjetas Digitales",
-  description: "Tarjetas digitales para asesores inmobiliarios Viver",
-  icons: {
-    icon: "/assets/favicon.png",
-  },
-  openGraph: {
-    images: ["/assets/preview_viver.png"],
-  },
-};
       </head>
       <body>{children}</body>
     </html>
